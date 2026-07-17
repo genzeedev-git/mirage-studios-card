@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1c74f8;
+  --color-primary-dark: #0366fc;
+  --color-background: #E6E6E6;
+  --color-foreground: #1f2937;
+  --color-card: #ffffff;
+  --color-card-foreground: #1f2937;
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #6b7280;
+  --color-border: rgba(28, 116, 248, 0.12);
+  --color-accent: #1c74f8;
+  --color-accent-foreground: #ffffff;
+  --color-navy: #0f172a;
+  --color-glass: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.3);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mirage: 'Mirage', sans-serif;
+  --breakpoint-3xl: 2000px;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+}
+
+@font-face {
+  font-family: "Mirage";
+  src: url("/src/assets/fonts/Mirage-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mirage";
+  src: url("/src/assets/fonts/Mirage-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mirage";
+  src: url("/src/assets/fonts/Mirage-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  @apply font-mirage;
+}
+
+*::selection {
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: black #e6e6e6;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e6e6e6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 4px;
+  min-height: 40px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(217 91% 55%);
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
