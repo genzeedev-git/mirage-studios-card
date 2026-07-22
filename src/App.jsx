@@ -11,7 +11,6 @@ import {
   FaTable,
   FaChartBar,
   FaLink,
-  FaExternalLinkAlt,
   FaSearch,
   FaInstagram,
   FaDribbble,
@@ -242,14 +241,18 @@ const App = () => {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 3xl:gap-10 items-start"
         >
-          {filteredCategories.map((category, idx) => (
-            <motion.div
-              key={category.id}
-              custom={idx}
-              variants={fadeInUp}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative rounded-3xl overflow-hidden transition-all duration-300 bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md hover:shadow-blue-100/50"
-            >
+          {filteredCategories.map((category, idx) => {
+            const linkCount = category.links.length;
+            const colSpan = linkCount >= 5 ? "xl:col-span-3" : "col-span-1";
+
+            return (
+              <motion.div
+                key={category.id}
+                custom={idx}
+                variants={fadeInUp}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`group relative rounded-3xl overflow-hidden transition-all duration-300 bg-white border border-gray-100 hover:border-blue-200 shadow-sm hover:shadow-md hover:shadow-blue-100/50 ${colSpan}`}
+              >
               {/* Card header with gradient accent */}
               <div className={`h-1.5 w-full bg-gradient-to-r ${category.color}`} />
 
@@ -290,7 +293,7 @@ const App = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.1 + linkIdx * 0.05 }}
-                      whileHover={{ x: 4, backgroundColor: "rgba(28,116,248,0.04)" }}
+                      whileHover={{ y: -2, backgroundColor: "rgba(28,116,248,0.04)" }}
                       whileTap={{ scale: 0.98 }}
                       className="flex items-center justify-between p-3 sm:p-4 rounded-2xl transition-all duration-200 cursor-pointer bg-gray-50/50 hover:bg-blue-50/50 border border-transparent hover:border-blue-100"
                     >
@@ -349,17 +352,14 @@ const App = () => {
                             )}
                           </AnimatePresence>
                         </motion.button>
-
-                        <FaExternalLinkAlt
-                          className="text-xs 3xl:text-sm text-gray-300"
-                        />
                       </div>
                     </motion.a>
                   ))}
                 </div>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {filteredCategories.length === 0 && (
@@ -374,6 +374,73 @@ const App = () => {
           </motion.div>
         )}
       </main>
+
+        {/* Contact Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="bg-white/60 border-y border-gray-200/60"
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 3xl:px-12 py-12 sm:py-16 3xl:py-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 3xl:gap-16">
+              {/* GenzeeDev Contact */}
+              <div className="text-center sm:text-left">
+                <h3
+                  className="text-lg sm:text-xl 3xl:text-2xl font-bold text-navy mb-3 3xl:mb-4"
+                  style={{ fontFamily: "var(--font-mirage)" }}
+                >
+                  GenzeeDev
+                </h3>
+                <p className="text-xs sm:text-sm 3xl:text-base text-gray-500 mb-4 3xl:mb-6">
+                  We craft digital experiences for brands worldwide.
+                </p>
+                <div className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm 3xl:text-base text-gray-600">
+                  <p>
+                    <span className="font-semibold text-gray-800">Email: </span>
+                    genzeedev.contact@gmail.com
+                  </p>
+                  <p>
+                    <span className="font-semibold text-gray-800">Phone: </span>
+                    +91 9842852121, +91 8248627519
+                  </p>
+                  <p>
+                    <span className="font-semibold text-gray-800">Website: </span>
+                    genzeedev.vercel.app
+                  </p>
+                </div>
+              </div>
+
+              {/* Mirage Studios Contact */}
+              <div className="text-center sm:text-left">
+                <h3
+                  className="text-lg sm:text-xl 3xl:text-2xl font-bold text-navy mb-3 3xl:mb-4"
+                  style={{ fontFamily: "var(--font-mirage)" }}
+                >
+                  Mirage Studios
+                </h3>
+                <p className="text-xs sm:text-sm 3xl:text-base text-gray-500 mb-4 3xl:mb-6">
+                  Creative agency building immersive digital products.
+                </p>
+                <div className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm 3xl:text-base text-gray-600">
+                  <p>
+                    <span className="font-semibold text-gray-800">Email: </span>
+                    hello@mirage-studios.com
+                  </p>
+                  <p>
+                    <span className="font-semibold text-gray-800">Phone: </span>
+                    +91 99400 37175
+                  </p>
+                  <p>
+                    <span className="font-semibold text-gray-800">Website: </span>
+                    mirage-studios.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
 
       {/* Footer */}
       <motion.footer
