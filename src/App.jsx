@@ -68,6 +68,7 @@ const LINK_CATEGORIES = [
       { name: "Main Website", url: "https://mirage-studios.com", icon: FaGlobe },
        { name: "Admin Page", url: "https://mirage-studios.com/admin-dashboard", icon: FaChartBar },
       { name: "Links Page", url: "https://mirage-studios.com/links", icon: FaLink },
+      { name: "Portfolio PDF", url: "https://mirage-studios.com/portfolio", icon: FaSearch },
     ],
   },
   {
