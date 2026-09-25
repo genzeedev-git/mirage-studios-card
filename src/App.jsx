@@ -382,7 +382,7 @@ const App = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-white/60 border-y border-gray-200/60"
+          className="bg-white/60 border-y border-gray-200/60 "
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 3xl:px-12 py-12 sm:py-16 3xl:py-20">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 3xl:gap-16">
